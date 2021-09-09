@@ -1,0 +1,20 @@
+<view class="container">
+  <scroll-view class="list" scroll-y style="height:1400rpx">
+    <view class="item" wx:for="{{message}}" wx:key="item">
+      <view class="chat" wx:if="{{item.type != 'welcome'}}">
+        <image src="../../public/img/avatar.jpg" />
+        <view>{{item.msg}}</view>
+      </view>
+      <view class="welcome" wx:if="{{item.type == 'welcome'}}">
+        <view>{{item.msg}}</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<view class="input">
+  <view class="content">
+    <input type="text" value="{{text}}" bindinput="getText" placeholder="在这里输入消息..." />
+    <view bindtap="send">发送</view>
+  </view>
+</view>
